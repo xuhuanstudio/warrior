@@ -18,7 +18,6 @@
             </transition-group>
         </ul>
         <ul class="records">
-<!--            <li></li>-->
             <transition-group name="tell">
                 <li v-for="(item, index) in records" :key="index"></li>
             </transition-group>
@@ -29,12 +28,12 @@
 </template>
 
 <script>
-    import VueAudio from "@/components/Vue-Audio";
+    import VueAudio from '@/components/Vue-Audio';
 
-    import src_bg from "@/assets/audios/play_up.mp3";
+    import src_bg from '@/assets/audios/play_up.mp3';
 
     export default {
-        name: "BattleAssignmentBook",
+        name: 'BattleAssignmentBook',
         components: {
             VueAudio
         },
@@ -50,7 +49,7 @@
             const self = this;
             self.$nextTick(function(){
 
-                self.$refs.bgAudio.updateState("play");
+                self.$refs.bgAudio.updateState('play');
 
                 setTimeout(function () {
                     self.showImagesByStep(self.fingerprints, 4, 3000, function () {
@@ -72,7 +71,6 @@
                         onComplete();
                     }
                 })();
-
             }
         }
     }
@@ -121,15 +119,6 @@
         animation-fill-mode: forwards;
         bottom: 0;
     }
-
-    /*横屏*/
-    /*@media screen and (orientation: landscape) {*/
-    /*    @media screen and (max-height: 600px) {*/
-    /*        .text-content{*/
-    /*            transform: scale(0.9);*/
-    /*        }*/
-    /*    }*/
-    /*}*/
 
     @keyframes up {
         from{
@@ -187,10 +176,10 @@
         background-size: contain;
         background-repeat: no-repeat;
     }
-    .fingerprints li:nth-child(1){background-image: url("../assets/images/fingerprints_0.png");}
-    .fingerprints li:nth-child(2){background-image: url("../assets/images/fingerprints_1.png");}
-    .fingerprints li:nth-child(3){background-image: url("../assets/images/fingerprints_2.png");}
-    .fingerprints li:nth-child(4){background-image: url("../assets/images/fingerprints_3.png");}
+    .fingerprints li:nth-child(1){background-image: url(../assets/images/fingerprints_0.png);}
+    .fingerprints li:nth-child(2){background-image: url(../assets/images/fingerprints_1.png);}
+    .fingerprints li:nth-child(3){background-image: url(../assets/images/fingerprints_2.png);}
+    .fingerprints li:nth-child(4){background-image: url(../assets/images/fingerprints_3.png);}
 
     /*照片*/
     .records{
@@ -215,26 +204,26 @@
     }
     .records li:nth-child(1){
         transform: translate(-60%,-90%) rotate(20deg);
-        background-image: url("../assets/images/a_0.png");
+        background-image: url(../assets/images/a_0.png);
     }
     .records li:nth-child(2){
         transform: translate(-10%,-60%) rotate(-40deg);
-        background-image: url("../assets/images/a_1.png");}
+        background-image: url(../assets/images/a_1.png);}
     .records li:nth-child(3){
         transform: translate(-93%,-20%) rotate(-20deg);
-        background-image: url("../assets/images/a_2.png");
+        background-image: url(../assets/images/a_2.png);
     }
     .records li:nth-child(4){
         transform: translate(-28%,0%) rotate(25deg);
-        background-image: url("../assets/images/a_3.png");
+        background-image: url(../assets/images/a_3.png);
     }
     .records li:nth-child(5){
         transform: translate(-50%,-40%) rotate(-0deg);
-        background-image: url("../assets/images/a_4.png");
+        background-image: url(../assets/images/a_4.png);
     }
     .records li:nth-child(6){
         transform: translate(-50%,-50%);
-        background-image: url("../assets/images/play_up.png");
+        background-image: url(../assets/images/play_up.png);
         filter: drop-shadow(3px 3px 2px rgba(0, 0, 0, 1));
     }
 </style>

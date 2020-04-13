@@ -1,38 +1,17 @@
 <template>
   <div id="app">
     <transition name="gradual">
-      <Start v-if="showStart" @event-next="showStart=false,showPrologue=true"></Start>
-      <Prologue v-else-if="showPrologue"  @event-next="showPrologue=false, showPlotChatting=true"></Prologue>
-      <PlotChatting v-else-if="showPlotChatting" @event-next="showPlotChatting=false, showBattleAssignmentBook=true"></PlotChatting>
-      <BattleAssignmentBook v-else-if="showBattleAssignmentBook"></BattleAssignmentBook>
+      <router-view></router-view>
     </transition>
   </div>
 </template>
 
 <script>
-import Start from "@/components/Start";
-import Prologue from "@/components/Prologue";
-import PlotChatting from "@/components/PlotChatting";
-import BattleAssignmentBook from "@/components/BattleAssignmentBook";
-
 export default {
   name: 'App',
-  components: {
-    Start,
-    Prologue,
-    PlotChatting,
-    BattleAssignmentBook
-  },
-  data: function () {
-    return{
-      showStart: true,
-      showPrologue: false,
-      showPlotChatting: false,
-      showBattleAssignmentBook: false
-    }
-  },
-  created: function () {
-
+  created(){
+    // 如果router mode 是 abstract ，则配置的重定向无效，需要手动激活
+    this.$router.replace('/');
   }
 }
 </script>

@@ -1,12 +1,13 @@
 <template>
     <div class="prologue">
         <ul class="typewriter">
-            <li></li>
-            <li v-for="(item,index) in content" :key="index">{{item}}</li>
+            <transition-group name="font-fade">
+                <li v-for="(item,index) in content" :key="index">{{item}}</li>
+            </transition-group>
         </ul>
         <VueAudio ref="bgAudio" :file-url="src_typewriting"></VueAudio>
         <transition name="fade">
-            <div class="hint" v-if="showHint" @click="$emit('event-next')">
+            <div class="hint" v-if="showHint" @click="$router.replace('/plot-chatting')">
                 <span>点击屏幕继续</span>
             </div>
         </transition>
@@ -14,7 +15,7 @@
 </template>
 
 <script>
-    import VueAudio from "./Vue-Audio";
+    import VueAudio from "@/components/Vue-Audio";
 
     import src_typewriting from "@/assets/audios/typewriting.mp3";
 
@@ -35,7 +36,7 @@
             const self = this;
 
             self.$nextTick(function () {
-                const _content = "雪花飞舞，只因人间太美，笑对生命，只因眼泪太贵，今年的春节，我们的心一直被疫情牵动着，经历着很多内心的变化，有焦虑，有担忧，也有不安，在短短不到三个月的时间，感受到生命的无常，每天都有成千上万感人故事上演，更感受到每个人心中的坚强与勇敢，给我们内心更多的善意与爱。   ";
+                const _content = "雪花飞舞，只因人间太美，笑对生命，只因眼泪太贵，今年的春节，我们的心一直被疫情牵动着，经历着很多内心的变化，有焦虑，有担忧，也有不安，在短短不到三个月的时间，感受到生命的无常，每天都有成千上万感人故事上演，更感受到每个人心中的坚强与勇敢，给我们内心更多的善意与爱。";
                 let _contentCount = 0;
 
                 self.$refs.bgAudio.updateState("play");
@@ -48,7 +49,7 @@
 
                         setTimeout(function () {
                             self.showHint = true;
-                        }, 1500);
+                        }, 2000);
                     }
                 }, 200);
             });
@@ -85,17 +86,16 @@
         display: inline-block;
     }
     .typewriter li:first-child {
-        width: 2.8em;
+        width: 4.2em;
         height: 1.5em;
+        text-align: right;
     }
-    .typewriter li:nth-last-child(3){
-        opacity: .8;
+
+    .font-fade-enter-active{
+        transition: opacity 1.5s;
     }
-    .typewriter li:nth-last-child(2){
-        opacity: .5;
-    }
-    .typewriter li:nth-last-child(1){
-        opacity: .2;
+    .font-fade-enter{
+        opacity: 0;
     }
 
     .hint{

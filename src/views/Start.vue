@@ -22,7 +22,7 @@
 
 <script>
     import Snowf from 'vue-snowf';
-    import VueAudio from "./Vue-Audio";
+    import VueAudio from "@/components/Vue-Audio";
 
     import src_petal from '@/assets/images/petal.png';
     import src_light_music from "@/assets/audios/light_music.mp3";
@@ -59,10 +59,10 @@
 
                 self.animation = true;
 
-                self.$refs.bgAudio_light_music.updateState("play");
+                self.$refs.bgAudio_light_music.updateState('play');
 
                 setTimeout(function () {
-                    self.$emit('event-next');
+                    self.$router.replace('/prologue');
                 }, 10000);
 
             }
@@ -88,7 +88,7 @@
         width: 100%;
         height: 100vh;
         /*background-color: #202020;*/
-        background: url("../assets/images/bg_2.jpg") no-repeat center/cover;
+        background: url(../assets/images/bg_2.jpg) no-repeat center/cover;
         display: flex;
         align-items: center;
         justify-content: center;

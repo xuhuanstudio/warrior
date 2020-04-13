@@ -34,14 +34,14 @@
 </template>
 
 <script>
-    import Clock from "@/components/Clock";
-    import VueAudio from "@/components/Vue-Audio";
+    import Clock from '@/components/Clock';
+    import VueAudio from '@/components/Vue-Audio';
 
-    import src_warning_tone from "@/assets/audios/warning_tone.mp3";
-    import src_light_music from "@/assets/audios/light_music.mp3";
+    import src_warning_tone from '@/assets/audios/warning_tone.mp3';
+    import src_light_music from '@/assets/audios/light_music.mp3';
 
     export default {
-        name: "PlotChatting",
+        name: 'PlotChatting',
         components: {
             Clock,
             VueAudio
@@ -57,14 +57,14 @@
             };
         },
         mounted: function() {
-            const self = this;
+            const self = this
 
             self.$nextTick(function () {
                 let _index = 0;
                 const _data = [
-                    {title: "您有1条腾讯新闻", desc: "疫情危机持续同时，亦遇上全球...", time: 1000},
-                    {title: "您有1条微信消息", time: 4000},
-                    {title: "您有2条微信消息", time: 3500}
+                    {title: '您有1条腾讯新闻', desc: '疫情危机持续同时，亦遇上全球...', time: 1000},
+                    {title: '您有1条微信消息', time: 4000},
+                    {title: '您有2条微信消息', time: 3500}
                 ];
 
                 (function showNotice(){
@@ -76,7 +76,7 @@
                             duration: 2.5
                         });
 
-                        self.$refs.warningToneAudio.updateState("play");
+                        self.$refs.warningToneAudio.updateState('play');
 
                         if(_index < _data.length){
                             showNotice();
@@ -93,22 +93,22 @@
         methods: {
             printChat: function (){
                 const self = this;
-                self.$refs.bgAudio_light_music.updateState("play");
+                self.$refs.bgAudio_light_music.updateState('play');
 
                 const _chatRecordData = [
-                    {id: "a", time: 1500, content: "家里现在都还好么"},
-                    {id: "a", time: 1500, content: "今年过年我可能就要去武汉了"},
-                    {id: "a", time: 3000, content: "已经报名了"},
-                    {id: "b", time: 2500, content: "医护人员那么多，不缺你一个的，要不咋就不去了吧"},
-                    {id: "a", time: 2500, content: "但是我自荐了"},
-                    {id: "a", time: 3000, content: "我觉得我有这个义务"},
-                    {id: "a", time: 3000, content: "因为我和其他的医护人员那么不一样，我是汶川人呀"},
-                    {id: "b", time: 2500, content: "可是"},
-                    {id: "a", time: 2500, content: "好了，不说了，先这样吧"},
-                    {id: "b", time: 2500, content: "一定要平安回来啊"},
-                    {id: "b", time: 3000, content: "一定要！"},
-                    {id: "b", time: 2500, content: "答应我"},
-                    {id: "h", time: 3500, content: "对方暂时无法接听..."}
+                    {id: "a", time: 1500, content: '家里现在都还好么'},
+                    {id: "a", time: 1500, content: '今年过年我可能就要去武汉了'},
+                    {id: "a", time: 3000, content: '已经报名了'},
+                    {id: "b", time: 2500, content: '医护人员那么多，不缺你一个的，要不咋就不去了吧'},
+                    {id: "a", time: 2500, content: '但是我自荐了'},
+                    {id: "a", time: 3000, content: '我觉得我有这个义务'},
+                    {id: "a", time: 3000, content: '因为我和其他的医护人员那么不一样，我是汶川人呀'},
+                    {id: "b", time: 2500, content: '可是'},
+                    {id: "a", time: 2500, content: '好了，不说了，先这样吧'},
+                    {id: "b", time: 2500, content: '一定要平安回来啊'},
+                    {id: "b", time: 3000, content: '一定要！'},
+                    {id: "b", time: 2500, content: '答应我'},
+                    {id: "h", time: 3500, content: '对方暂时无法接听...'}
                 ];
 
                 let _index = 0;
@@ -122,11 +122,11 @@
                             readData();
                         }else{
                             setTimeout(function () {
-                                self.$emit("event-next");
+                                self.$router.replace('/battle-assignment-book');
                             }, 3000);
                         }
                     }, _element.time);
-                })();
+                })()
 
             }
         }
@@ -271,7 +271,7 @@
     li.a::before{
         display: inline-block;
         content: '';
-        background: url("../assets/images/icon_0.jpg") no-repeat center/cover;
+        background: url(../assets/images/icon_0.jpg) no-repeat center/cover;
         width: 40px;
         height: 40px;
         border-radius: 5px;
@@ -313,7 +313,7 @@
     li.b::after{
         display: inline-block;
         content: '';
-        background: url("../assets/images/icon_1.jpg") no-repeat center/cover;
+        background: url(../assets/images/icon_1.jpg) no-repeat center/cover;
         width: 40px;
         height: 40px;
         border-radius: 5px;
